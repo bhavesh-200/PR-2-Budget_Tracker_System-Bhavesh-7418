@@ -32,3 +32,43 @@ A simple and clean budget tracker web application built with Node.js, Express, M
 ```bash
 git clone https://github.com/bhavesh-200/PR-2-Budget_Tracker_System-Bhavesh-7418.git
 cd PROJECT - 2
+
+---
+
+2. Install Dependencies
+
+npm install -Y
+
+---
+
+3. Start MongoDB
+Make sure MongoDB is running locally on mongodb://localhost:27017.
+
+---
+
+4. Run the App
+
+node app.js
+Visit: http://localhost:8001
+
+---
+
+## 📁 Folder Structure
+
+PROJECT - 2/
+│
+├── models/            # Mongoose models (Budget, Expense)
+├── public/            # Static assets (CSS, images)
+│   └── css/
+├── routes/            # Express routes
+├── views/             # EJS templates
+├── app.js             # Main application file
+└── README.md          # Project documentation
+
+---
+
+✍️ Author
+Developed by Varyani Bhavesh
+🚀 Feel free to reach out or fork the project!
+
+---
