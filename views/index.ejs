@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budget Tracker System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Budget Tracker System</h1>
+  <div class="container">
+    <div class="left">
+      <form action="/add-budget" method="POST">
+        <h2>Add Budget</h2>
+        <label>Budget:</label>
+        <input type="number" name="amount" required />
+        <button type="submit">Add Budget</button>
+      </form>
+
+      <form action="/add-expense" method="POST">
+        <h2>Add Expense</h2>
+        <label>Expense Title:</label>
+        <input type="text" name="title" required />
+        <label>Amount:</label>
+        <input type="number" name="amount" required />
+        <button type="submit">Add Expense</button>
+      </form>
+
+      <form action="/reset" method="POST">
+        <button type="submit" class="reset">Reset All</button>
+      </form>
+    </div>
+
+    <div class="right">
+      <div class="summary">
+        <div>Total Budget: <span><%= totalBudget.toFixed(2) %></span></div>
+        <div>Total Expenses: <span><%= totalExpenses.toFixed(2) %></span></div>
+        <div>Budget Left: <span><%= budgetLeft.toFixed(2) %></span></div>
+      </div>
+
+      <h3>Expense History:</h3>
+      <table>
+        <tr>
+          <th>Expense Name</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+        <% expenses.forEach(expense => { %>
+          <tr>
+            <td><%= expense.title %></td>
+            <td><%= expense.amount.toFixed(2) %></td>
+            <td>
+              <form action="/delete-expense/<%= expense._id %>" method="POST">
+                <button>Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
